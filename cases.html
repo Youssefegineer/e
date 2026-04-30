@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قضايا بارزة - يسري رشاد | محامي النقض والمستشار القانوني</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#D4AF37',
+                            dark: '#F5D27F'
+                        },
+                        secondary: {
+                            light: '#1E293B',
+                            dark: '#F1F5F9'
+                        },
+                        darkBg: '#0F172A',
+                        lightBg: '#FFFFFF'
+                    },
+                    fontFamily: {
+                        arabic: ['Tajawal', 'Arial', 'sans-serif'],
+                        elegant: ['Cormorant Garamond', 'serif']
+                    },
+                    boxShadow: {
+                        'gold': '0 10px 30px -5px rgba(212, 175, 55, 0.3)',
+                        'dark-gold': '0 10px 30px -5px rgba(245, 210, 127, 0.3)',
+                        'elegant': '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
+        }
+        
+        .elegant-text {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #D4AF37 0%, #F5D27F 50%, #B8860B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            right: 0;
+            background-color: #D4AF37;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .dark .nav-link::after {
+            background-color: #F5D27F;
+        }
+        
+        .hero-pattern {
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(245, 210, 127, 0.1) 0%, transparent 50%);
+            background-size: 50% 50%, 50% 50%;
+        }
+        
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes pulseGlow {
+            from { box-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
+            to { box-shadow: 0 0 30px rgba(212, 175, 55, 0.8); }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .case-card {
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .case-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.05) 0%, rgba(245, 210, 127, 0.05) 100%);
+            transition: width 0.4s ease;
+            z-index: 0;
+        }
+        
+        .case-card:hover::before {
+            width: 100%;
+        }
+        
+        .case-card > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .case-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .case-icon {
+            transition: transform 0.4s ease, background-color 0.4s ease;
+        }
+        
+        .case-card:hover .case-icon {
+            transform: scale(1.1) rotate(5deg);
+            background-color: #B8860B;
+        }
+        
+        .dark .case-card:hover .case-icon {
+            background-color: #E6C878;
+        }
+        
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+        .delay-400 { transition-delay: 0.4s; }
+        .delay-500 { transition-delay: 0.5s; }
+        
+        .stat-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(245, 210, 127, 0.05) 100%);
+            border-right: 4px solid #D4AF37;
+        }
+        
+        .dark .stat-card {
+            background: linear-gradient(135deg, rgba(245, 210, 127, 0.05) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border-right: 4px solid #F5D27F;
+        }
+        
+        .creative-header {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(245, 210, 127, 0.1) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-left: 3px solid #D4AF37;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #D4AF37 }
+        }
+        
+        .filter-btn.active {
+            background: linear-gradient(135deg, #D4AF37, #B8860B);
+            color: white;
+            border-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-lightBg text-secondary-light dark:bg-darkBg dark:text-secondary-dark">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 dark:bg-darkBg/90 backdrop-blur-md shadow-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center space-x-reverse space-x-4">
+                <div class="p-0">
+                    <img 
+                        src="image-removebg-preview.png" 
+                        alt="شعار يسري رشاد" 
+                        class="w-16 h-16 object-contain block" 
+                        loading="lazy"
+                    />
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-gray-900 dark:text-white tracking-wider">يسري رشاد</h1>
+                    <p class="text-sm text-primary-light dark:text-primary-dark">محامي النقض والمستشار القانوني</p>
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="hidden md:flex space-x-reverse space-x-8">
+                <a href="index.html" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300 font-medium">الرئيسية</a>
+                <a href="about.html" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300 font-medium">نبذة عني</a>
+                <a href="services.html" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300 font-medium">خدماتنا</a>
+                <a href="cases.html" class="nav-link text-primary-light dark:text-primary-dark font-medium">قضايا بارزة</a>
+                <a href="contact.html" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300 font-medium">التواصل</a>
+            </div>
+
+            <!-- Dark Mode Toggle and Mobile Menu Button -->
+            <div class="flex items-center space-x-reverse space-x-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300">
+                    <i class="fas fa-moon text-gray-700 dark:text-yellow-300"></i>
+                </button>
+                
+                <button class="md:hidden p-2" id="mobile-menu-btn">
+                    <svg class="w-6 h-6 text-gray-900 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden mt-4 pb-4" id="mobile-menu">
+            <div class="flex flex-col space-y-4 px-6">
+                <a href="index.html" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300 font-medium">الرئيسية</a>
+                <a href="about.html" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300 font-medium">نبذة عني</a>
+                <a href="services.html" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300 font-medium">خدماتنا</a>
+                <a href="cases.html" class="nav-link text-primary-light dark:text-primary-dark font-medium">قضايا بارزة</a>
+                <a href="contact.html" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300 font-medium">التواصل</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 creative-header hero-pattern relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-6xl font-bold text-secondary-light dark:text-white mb-6 fade-in">
+                    <span class="gold-gradient-text elegant-text">قضايا بارزة</span>
+                </h1>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary-light to-[#B8860B] dark:from-primary-dark dark:to-[#E6C878] mx-auto mb-8"></div>
+                <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8 fade-in delay-200">
+                    سجل حافل من النجاحات والقضايا المميزة على مدار أكثر من 20 عاماً من الخبرة القانونية
+                </p>
+                <div class="fade-in delay-300">
+                    <div class="flex justify-center items-center gap-6">
+                        <div class="stat-card p-4 rounded-xl">
+                            <span class="text-3xl font-bold text-primary-light dark:text-primary-dark">750+</span>
+                            <span class="text-gray-600 dark:text-gray-400 mr-2">قضية</span>
+                        </div>
+                        <div class="stat-card p-4 rounded-xl">
+                            <span class="text-3xl font-bold text-primary-light dark:text-primary-dark">90%</span>
+                            <span class="text-gray-600 dark:text-gray-400 mr-2">معدل نجاح</span>
+                        </div>
+                        <div class="stat-card p-4 rounded-xl">
+                            <span class="text-3xl font-bold text-primary-light dark:text-primary-dark">15+</span>
+                            <span class="text-gray-600 dark:text-gray-400 mr-2">محكمة مختلفة</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="py-8 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="filter-btn active px-6 py-3 rounded-full border-2 border-primary-light text-primary-light dark:border-primary-dark dark:text-primary-dark font-medium hover:bg-primary-light hover:text-white dark:hover:bg-primary-dark dark:hover:text-gray-900 transition-all duration-300" data-filter="all">
+                    جميع القضايا
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full border-2 border-primary-light text-primary-light dark:border-primary-dark dark:text-primary-dark font-medium hover:bg-primary-light hover:text-white dark:hover:bg-primary-dark dark:hover:text-gray-900 transition-all duration-300" data-filter="civil">
+                    مدني وتجاري
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full border-2 border-primary-light text-primary-light dark:border-primary-dark dark:text-primary-dark font-medium hover:bg-primary-light hover:text-white dark:hover:bg-primary-dark dark:hover:text-gray-900 transition-all duration-300" data-filter="criminal">
+                    جنائي
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full border-2 border-primary-light text-primary-light dark:border-primary-dark dark:text-primary-dark font-medium hover:bg-primary-light hover:text-white dark:hover:bg-primary-dark dark:hover:text-gray-900 transition-all duration-300" data-filter="family">
+                    أسرة وأحوال شخصية
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full border-2 border-primary-light text-primary-light dark:border-primary-dark dark:text-primary-dark font-medium hover:bg-primary-light hover:text-white dark:hover:bg-primary-dark dark:hover:text-gray-900 transition-all duration-300" data-filter="commercial">
+                    شركات وأعمال
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full border-2 border-primary-light text-primary-light dark:border-primary-dark dark:text-primary-dark font-medium hover:bg-primary-light hover:text-white dark:hover:bg-primary-dark dark:hover:text-gray-900 transition-all duration-300" data-filter="arbitration">
+                    تحكيم دولي
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases Grid -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="casesGrid">
+                <!-- Case 1 - مدني وتجاري -->
+                <div class="case-card bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg fade-in" data-category="civil">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                             alt="قضية مدنية" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-primary-light text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            مدني وتجاري
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="case-icon w-10 h-10 bg-primary-light dark:bg-primary-dark text-white rounded-lg flex items-center justify-center ml-3">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-secondary-light dark:text-white">نزاع عقاري كبير</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                            تمثيل إحدى كبرى شركات المقاولات في نزاع عقاري بقيمة 25 مليون جنيه، والوصول إلى حكم نهائي لصالح العميل باستلام العقار كاملاً.
+                        </p>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">
+                                <i class="fas fa-calendar-alt ml-1"></i> 2024
+                            </span>
+                            <span class="text-sm text-primary-light dark:text-primary-dark font-semibold">حكم نهائي</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 2 - جنائي -->
+                <div class="case-card bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg fade-in delay-100" data-category="criminal">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                             alt="قضية جنائية" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-primary-light text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            جنائي
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="case-icon w-10 h-10 bg-primary-light dark:bg-primary-dark text-white rounded-lg flex items-center justify-center ml-3">
+                                <i class="fas fa-gavel"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-secondary-light dark:text-white">قضية شيكات بدون رصيد</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                            الدفاع عن رجل أعمال في قضية شيكات بدون رصيد بقيمة 5 ملايين جنيه، والحصول على البراءة لانتفاء القصد الجنائي.
+                        </p>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">
+                                <i class="fas fa-calendar-alt ml-1"></i> 2023
+                            </span>
+                            <span class="text-sm text-primary-light dark:text-primary-dark font-semibold">براءة</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 3 - أسرة -->
+                <div class="case-card bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg fade-in delay-200" data-category="family">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1449247709967-d4461a6a6103?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" 
+                             alt="قضية أسرة" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-primary-light text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            أحوال شخصية
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="case-icon w-10 h-10 bg-primary-light dark:bg-primary-dark text-white rounded-lg flex items-center justify-center ml-3">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-secondary-light dark:text-white">قضية حضانة وميراث</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                            تمثيل أرملة وأطفالها في قضية ميراث معقدة ضد الورثة الشرعيين، والحصول على جميع حقوقهم الشرعية كاملة.
+                        </p>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">
+                                <i class="fas fa-calendar-alt ml-1"></i> 2024
+                            </span>
+                            <span class="text-sm text-primary-light dark:text-primary-dark font-semibold">تنفيذ كامل</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 4 - شركات وأعمال -->
+                <div class="case-card bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg fade-in" data-category="commercial">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" 
+                             alt="قضية شركات" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-primary-light text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            شركات وأعمال
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="case-icon w-10 h-10 bg-primary-light dark:bg-primary-dark text-white rounded-lg flex items-center justify-center ml-3">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-secondary-light dark:text-white">نزاع شركاء مؤسسين</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                            فض نزاع بين شركاء في إحدى شركات المقاولات الكبرى، وإعادة هيكلة الملكية والإدارة بما يحقق استمرارية الشركة.
+                        </p>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">
+                                <i class="fas fa-calendar-alt ml-1"></i> 2023
+                            </span>
+                            <span class="text-sm text-primary-light dark:text-primary-dark font-semibold">تسوية ودية</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 5 - تحكيم دولي -->
+                <div class="case-card bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg fade-in delay-100" data-category="arbitration">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1521791051993-23227fb50975?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" 
+                             alt="تحكيم دولي" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-primary-light text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            تحكيم دولي
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="case-icon w-10 h-10 bg-primary-light dark:bg-primary-dark text-white rounded-lg flex items-center justify-center ml-3">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-secondary-light dark:text-white">منازعة عقد دولي</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                            تمثيل شركة مصرية في تحكيم دولي ضد شريك أجنبي، والحصول على تعويض قدره 2 مليون دولار أمريكي.
+                        </p>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">
+                                <i class="fas fa-calendar-alt ml-1"></i> 2024
+                            </span>
+                            <span class="text-sm text-primary-light dark:text-primary-dark font-semibold">حكم تحكيم</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 6 - مدني وتجاري -->
+                <div class="case-card bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg fade-in delay-200" data-category="civil">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80" 
+                             alt="قضية تعويضات" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-primary-light text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            مدني وتجاري
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="case-icon w-10 h-10 bg-primary-light dark:bg-primary-dark text-white rounded-lg flex items-center justify-center ml-3">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-secondary-light dark:text-white">دعوى تعويض عن خطأ طبي</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                            تمثيل أسرة في دعوى تعويض عن خطأ طبي أدى إلى وفاة، والحصول على تعويض قدره مليون جنيه من المستشفى والطبيب المعالج.
+                        </p>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">
+                                <i class="fas fa-calendar-alt ml-1"></i> 2022
+                            </span>
+                            <span class="text-sm text-primary-light dark:text-primary-dark font-semibold">حكم نهائي</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 7 - جنائي -->
+                <div class="case-card bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg fade-in" data-category="criminal">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                             alt="قضية اختلاس" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-primary-light text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            جنائي
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="case-icon w-10 h-10 bg-primary-light dark:bg-primary-dark text-white rounded-lg flex items-center justify-center ml-3">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-secondary-light dark:text-white">قضية اختلاس أموال عامة</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                            الدفاع عن موظفين كبار في إحدى الهيئات الحكومية في قضية اختلاس أموال عامة، والوصول إلى حكم بالبراءة لجميع المتهمين.
+                        </p>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">
+                                <i class="fas fa-calendar-alt ml-1"></i> 2023
+                            </span>
+                            <span class="text-sm text-primary-light dark:text-primary-dark font-semibold">براءة</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 8 - شركات وأعمال -->
+                <div class="case-card bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg fade-in delay-100" data-category="commercial">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" 
+                             alt="تأسيس شركات" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-primary-light text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            شركات وأعمال
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="case-icon w-10 h-10 bg-primary-light dark:bg-primary-dark text-white rounded-lg flex items-center justify-center ml-3">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-secondary-light dark:text-white">إعادة هيكلة مجموعة شركات</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                            تقديم استشارات قانونية متكاملة لإعادة هيكلة مجموعة شركات تضم 7 كيانات، بما يتوافق مع قوانين الاستثمار والشركات.
+                        </p>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">
+                                <i class="fas fa-calendar-alt ml-1"></i> 2024
+                            </span>
+                            <span class="text-sm text-primary-light dark:text-primary-dark font-semibold">هيكلة كاملة</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 9 - أسرة -->
+                <div class="case-card bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg fade-in delay-200" data-category="family">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1606122017369-d6d893bcac59?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" 
+                             alt="قضية نفقة" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-primary-light text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            أحوال شخصية
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="case-icon w-10 h-10 bg-primary-light dark:bg-primary-dark text-white rounded-lg flex items-center justify-center ml-3">
+                                <i class="fas fa-hand-holding-heart"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-secondary-light dark:text-white">قضية نفقة وحضانة</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                            تمثيل أم في قضية نفقة وحضانة أطفال، والحصول على حكم بالنفقة وإلزام الأب بسداد جميع المستحقات المتأخرة.
+                        </p>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">
+                                <i class="fas fa-calendar-alt ml-1"></i> 2023
+                            </span>
+                            <span class="text-sm text-primary-light dark:text-primary-dark font-semibold">حكم نهائي</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories Stats -->
+    <section class="py-16 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary-light dark:text-white mb-4">نتائج مبهرة</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary-light to-[#B8860B] dark:from-primary-dark dark:to-[#E6C878] mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    أرقام وحقائق تعكس حجم النجاحات التي حققناها لعملائنا
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center p-6 fade-in">
+                    <div class="text-4xl font-bold text-primary-light dark:text-primary-dark mb-2">750+</div>
+                    <div class="text-gray-600 dark:text-gray-400">قضية منجزة</div>
+                </div>
+                <div class="text-center p-6 fade-in delay-100">
+                    <div class="text-4xl font-bold text-primary-light dark:text-primary-dark mb-2">90%</div>
+                    <div class="text-gray-600 dark:text-gray-400">معدل النجاح</div>
+                </div>
+                <div class="text-center p-6 fade-in delay-200">
+                    <div class="text-4xl font-bold text-primary-light dark:text-primary-dark mb-2">500+</div>
+                    <div class="text-gray-600 dark:text-gray-400">عميل راضٍ</div>
+                </div>
+                <div class="text-center p-6 fade-in delay-300">
+                    <div class="text-4xl font-bold text-primary-light dark:text-primary-dark mb-2">50M+</div>
+                    <div class="text-gray-600 dark:text-gray-400">جنيه قيمة تعويضات</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary-light dark:text-white mb-4">ماذا قال عملاؤنا عن هذه القضايا</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary-light to-[#B8860B] dark:from-primary-dark dark:to-[#E6C878] mx-auto mb-6"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-primary-light dark:bg-primary-dark rounded-full flex items-center justify-center text-white font-bold ml-3">
+                            م.ع
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white">محمد عبدالله</h4>
+                            <p class="text-sm text-gray-500">رجل أعمال</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        "في قضية النزاع العقاري، كان المحامي يسري رشاد على قدر المسؤولية. احترافيته وذكاؤه القانونياً كانا سبباً في فوزي بالقضية."
+                    </p>
+                    <div class="text-primary-light dark:text-primary-dark">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 fade-in delay-100">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-primary-light dark:bg-primary-dark rounded-full flex items-center justify-center text-white font-bold ml-3">
+                            ن.س
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white">نادية سعيد</h4>
+                            <p class="text-sm text-gray-500">ربة منزل</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        "شكراً للمحامي يسري على مساعدتي في قضية الميراث. تعامل مع القضية بحساسية وإنسانية، وحصل لي على كامل حقوقي."
+                    </p>
+                    <div class="text-primary-light dark:text-primary-dark">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 fade-in delay-200">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-primary-light dark:bg-primary-dark rounded-full flex items-center justify-center text-white font-bold ml-3">
+                            خ.م
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white">خالد مصطفى</h4>
+                            <p class="text-sm text-gray-500">مدير شركة</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        "في قضية التحكيم الدولي، أظهر الأستاذ يسري خبرة كبيرة في القانون الدولي، واستطاع الحصول على تعويض كبير لشركتنا."
+                    </p>
+                    <div class="text-primary-light dark:text-primary-dark">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-primary-light to-[#B8860B] text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">هل لديك قضية تريد مناقشتها؟</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+                فريقنا القانوني مستعد لمساعدتك وتحقيق أفضل النتائج في قضيتك
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="bg-white text-primary-light px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-gray-100 transform hover:-translate-y-1 transition-all duration-300">
+                    احجز استشارة مجانية <i class="fas fa-arrow-left mr-2"></i>
+                </a>
+                <a href="tel:+201004426279" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-primary-light transition-all duration-300">
+                    اتصل بنا الآن <i class="fas fa-phone mr-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-light dark:bg-gray-900 text-white pt-20 pb-10">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <!-- About -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <img src="image-removebg-preview.png" alt="شعار يسري رشاد" class="w-12 h-12 mr-4">
+                        <div>
+                            <h3 class="text-xl font-bold">يسري رشاد</h3>
+                            <p class="text-primary-light dark:text-primary-dark text-sm">محامي النقض والمستشار القانوني</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 dark:text-gray-400 mb-6 leading-relaxed">
+                        مكتب محاماة متخصص يقدم حلولاً قانونية متميزة منذ أكثر من 20 عاماً، نلتزم بتحقيق العدالة وحماية حقوق العملاء بأعلى معايير الاحترافية.
+                    </p>
+                    <div class="flex space-x-reverse space-x-4">
+                        <a href="https://www.facebook.com/donkamello.alexander" target="_blank" class="w-10 h-10 flex items-center justify-center bg-gray-700 hover:bg-primary-light dark:hover:bg-primary-dark rounded-full transition-all duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/cons.ultantyousryiraqi/" target="_blank" class="w-10 h-10 flex items-center justify-center bg-gray-700 hover:bg-primary-light dark:hover:bg-primary-dark rounded-full transition-all duration-300">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-700 hover:bg-primary-light dark:hover:bg-primary-dark rounded-full transition-all duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://wa.me/201004426279" class="w-10 h-10 flex items-center justify-center bg-gray-700 hover:bg-primary-light dark:hover:bg-primary-dark rounded-full transition-all duration-300">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-xl font-bold mb-6">روابط سريعة</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-300 dark:text-gray-400 hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300">الرئيسية</a></li>
+                        <li><a href="about.html" class="text-gray-300 dark:text-gray-400 hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300">نبذة عني</a></li>
+                        <li><a href="services.html" class="text-gray-300 dark:text-gray-400 hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300">خدماتنا</a></li>
+                        <li><a href="cases.html" class="text-primary-light dark:text-primary-dark">قضايا بارزة</a></li>
+                        <li><a href="contact.html" class="text-gray-300 dark:text-gray-400 hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300">التواصل</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="text-xl font-bold mb-6">خدماتنا</h4>
+                    <ul class="space-y-3">
+                        <li><a href="services.html#civil" class="text-gray-300 dark:text-gray-400 hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300">القضاء المدني والتجاري</a></li>
+                        <li><a href="services.html#criminal" class="text-gray-300 dark:text-gray-400 hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300">القضاء الجنائي</a></li>
+                        <li><a href="services.html#family" class="text-gray-300 dark:text-gray-400 hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300">قانون الأسرة والعقارات</a></li>
+                        <li><a href="services.html#commercial" class="text-gray-300 dark:text-gray-400 hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300">قانون الشركات</a></li>
+                        <li><a href="services.html#arbitration" class="text-gray-300 dark:text-gray-400 hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300">التحكيم التجاري</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-xl font-bold mb-6">تواصل معنا</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-primary-light dark:text-primary-dark mt-1 ml-3"></i>
+                            <div>
+                                <p class="text-gray-300 dark:text-gray-400">ميدان المطريه أبراج العز 2</p>
+                                <p class="text-gray-300 dark:text-gray-400">برج أ إدراي مكتب 1002، القاهرة</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone-alt text-primary-light dark:text-primary-dark ml-3"></i>
+                            <p class="text-gray-300 dark:text-gray-400" dir="ltr">+20 100 442 6279</p>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-primary-light dark:text-primary-dark ml-3"></i>
+                            <p class="text-gray-300 dark:text-gray-400" dir="ltr">info@yousryrashad.law</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-center md:text-right mb-4 md:mb-0">
+                        © 2025 مكتب يسري رشاد للمحاماة. جميع الحقوق محفوظة.
+                    </p>
+                    <div class="flex space-x-reverse space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300">سياسة الخصوصية</a>
+                        <a href="#" class="text-gray-400 hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300">شروط الاستخدام</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/201004426279" target="_blank" class="fixed bottom-6 left-6 w-14 h-14 bg-green-500 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition-all duration-300 z-40 pulse-glow">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+
+        // Check for saved user preference or use system preference
+        if (localStorage.getItem('color-theme') === 'dark' || (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            // Toggle icon
+            themeIcon.classList.toggle('fa-moon');
+            themeIcon.classList.toggle('fa-sun');
+            
+            // Toggle theme
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const caseCards = document.querySelectorAll('.case-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                caseCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                        // Add animation
+                        card.classList.add('fade-in');
+                        setTimeout(() => {
+                            card.classList.add('visible');
+                        }, 100);
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.fade-in');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.remove('shadow-sm');
+            } else {
+                navbar.classList.add('shadow-sm');
+                navbar.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body>
+</html>
